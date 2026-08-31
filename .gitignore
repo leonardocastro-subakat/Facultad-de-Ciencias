@@ -1,0 +1,22 @@
+# Archivos auxiliares y de compilación de LaTeX
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.out
+*.toc
+*.lot
+*.lof
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+
+# Archivos de respaldo y editores
+*~
+*.bak
+.DS_Store
+.vscode/
