@@ -1,0 +1,290 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}                % Codificación UTF-8 para caracteres especiales
+\usepackage[T1]{fontenc}                   % Mejora la salida de texto con acentos
+% Babel no está disponible en esta instalación de TeX; se desactiva para que el documento compile.
+% Si deseas activar el idioma español, instala el paquete correspondiente del sistema TeX y descomenta la línea:
+% \usepackage[spanish]{babel}
+\usepackage{graphicx}                      % Manejo avanzado de imágenes [\includegraphics]
+\usepackage{float}                         % Posicionamiento preciso de figuras/tablas [H]
+\usepackage{bookmark}                      % Bookmarks interactivos en PDF (mejorado)
+\usepackage[makeroom]{cancel}              % Cancelación de términos en ecuaciones [\cancel]
+\usepackage{hyperref}                      % Hipervínculos interactivos
+\usepackage{nameref}                       % Referencias por nombre de sección
+\usepackage{theoremref}                    % Referencias a teoremas mejoradas
+\hypersetup{
+    pdftitle={Assignment},                 % Metadatos del PDF
+    colorlinks=true,                       % Enlaces en color (no recuadros)
+    linkcolor=cyan!90,                     % Color enlaces internos
+    urlcolor=blue,                         % Color URLs externas
+    bookmarksnumbered=true,                % Numeración automática de bookmarks
+    bookmarksopen=true                     % Bookmarks expandidos por defecto
+}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, mathtools} % Base para matemáticas
+\usepackage{xfrac}                         % Fracciones diagonales [\sfrac]
+\usepackage{tikz-cd}                       % Diagramas conmutativos
+\usepackage{tikzsymbols}                   % Símbolos especiales (emojis, misc.)
+\usepackage{siunitx}                       % Alineación numérica en tablas [S]
+\usepackage{multicol}                      % Columnas múltiples en texto/matemáticas
+
+\usepackage{booktabs}                      % Reglas profesionales para tablas [\toprule]
+\usepackage{array}                         % Control avanzado de columnas en tablas
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e} % Escritura de algoritmos
+\usepackage[most,many,breakable]{tcolorbox} % Cajas decoradas con estilo
+\usepackage{xcolor}                         % Gestión avanzada de colores
+\usepackage{varwidth}                       % Cajas de ancho variable
+\usepackage{enumitem}                       % Personalización de listas [nosep]
+\usepackage{etoolbox}                      % Utilidades para programación LaTeX
+\usepackage{import}                        % Importación modular de archivos
+\usepackage{xifthen}                       % Condicionales en documentos
+\usepackage{pdfpages}                     % Inclusión de páginas PDF externas
+\usepackage{transparent}                  % Manejo de transparencias
+% `babelbib` requiere soporte de idioma de babel, que no está instalado en este sistema.
+% Se desactiva para que el documento compile sin errores.
+% \usepackage[fixlanguage]{babelbib}
+% \bibliographystyle{babunsrt}
+\usepackage{titlesec}
+% Personalización de títulos
+% Centrar secciones automáticamente
+\titleformat{\section}
+  {\normalfont\Large\bfseries\centering}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\centering}{\thesubsection}{1em}{}
+
+\usepackage{comment}  
+\usepackage{epsfig, graphicx} % Inclusión de imágenes y gráficos
+\usepackage[left=2cm, right=2cm, top=1.8cm, bottom=2.3cm]{geometry} % Define los márgenes del documento
+\usepackage{fancyhdr}         % Para personalizar encabezados y pies de página
+\usepackage{lastpage}         % Permite referenciar el número total de páginas
+\usepackage{lipsum}           % Genera texto aleatorio para pruebas
+\usepackage{pgfplots, mathtools}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLORES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{mygr}{HTML}{2C3338}
+\definecolor{mauve}{rgb}{0.58,0,0.82}  % Color morado
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CAJAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --------------------------
+% Caja de Introducción/Indicaciones
+% --------------------------
+\newtcolorbox{intro}[1][]{%
+    enhanced,                               % Habilitar mejoras gráficas
+    before skip=2mm, after skip=2mm,        % Espaciado vertical
+    colback=gray!5,                         % Color de fondo claro
+    colframe=black!80!black,                % Borde oscuro
+    boxrule=0.5mm,                          % Grosor del borde
+    attach boxed title to top left={         % Posición del título
+        xshift=1cm,                         % Desplazamiento horizontal
+        yshift*=1mm-\tcboxedtitleheight      % Ajuste vertical preciso
+    },
+    varwidth boxed title*=-3cm,             % Ancho adaptable del título
+    boxed title style={                     % Estilo personalizado del título
+        frame code={                        % Diseño del marco del título
+            \path[fill=tcbcolback]
+            ([yshift=-1mm,xshift=-1mm]frame.north west)
+            arc[start angle=0,end angle=180,radius=1mm]
+            ([yshift=-1mm,xshift=1mm]frame.north east)
+            arc[start angle=180,end angle=0,radius=1mm];
+            \path[left color=tcbcolback!60!black,
+                  right color=tcbcolback!60!black,
+                  middle color=tcbcolback!80!black]
+            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+            -- (frame.south east) -- (frame.south west)
+            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+            [sharp corners]-- cycle;
+        }, 
+        interior engine=empty,              % Sin relleno adicional
+    },
+    fonttitle=\bfseries,                    % Título en negrita
+    title={Indicaciones},                   % Texto predeterminado del título
+    #1                                      % Permite personalización adicional
+}
+
+% --------------------------
+% Caja de Bibliografía (similar a intro con título diferente)
+% --------------------------
+\newtcolorbox{biblio}[1][]{enhanced,
+    before skip=2mm, after skip=2mm, colback=gray!5, colframe=black!80!black, boxrule=0.5mm,
+    attach boxed title to top left={xshift=1cm, yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+            \path[fill=tcbcolback]
+            ([yshift=-1mm,xshift=-1mm]frame.north west)
+            arc[start angle=0,end angle=180,radius=1mm]
+            ([yshift=-1mm,xshift=1mm]frame.north east)
+            arc[start angle=180,end angle=0,radius=1mm];
+            \path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+                middle color=tcbcolback!80!black]
+            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+            -- (frame.south east) -- (frame.south west)
+            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+            [sharp corners]-- cycle;
+        }, interior engine=empty,
+    },
+    fonttitle=\bfseries,
+    title={Bibliografía}, #1
+}
+
+% --------------------------
+% Caja de Inciso
+% --------------------------
+\makeatletter
+\newtcolorbox{inciso}[2][]{%
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=mygr,
+    attach boxed title to top left={
+        yshift*=-\tcboxedtitleheight
+    },
+    fonttitle=\bfseries,
+    title={#2},
+    boxed title size=title,
+    boxed title style={
+        sharp corners,
+        rounded corners=northwest,
+        colback=tcbcolframe,
+        boxrule=0pt,
+    },
+    underlay boxed title={
+        \path[fill=tcbcolframe] (title.south west)--(title.south east)
+        to[out=0, in=180] ([xshift=5mm]title.east)--
+        (title.center-|frame.east)
+        [rounded corners=\kvtcb@arc] |-
+        (frame.north) -| cycle;
+    },
+    #1
+}
+\makeatother
+
+% --------------------------
+% Caja de Notas
+% --------------------------
+\usetikzlibrary{arrows,calc,shadows.blur}   % Requisitos para efectos gráficos
+\tcbuselibrary{skins}                       % Habilita skins avanzados
+
+\newtcolorbox{notas}[1][]{%
+    enhanced jigsaw,                        % Skin mejorado para efectos
+    colback=gray!20!white,                  % Fondo gris claro
+    colframe=gray!80!black,                 % Borde gris oscuro
+    size=small,                             % Tamaño compacto
+    boxrule=1pt,                            % Grosor del borde
+    title=\textbf{Notas | Observaciones},   % Título doble
+    halign title=flush center,              % Alineación central del título
+    coltitle=black,                         % Color del texto del título
+    breakable,                              % Permite dividir en páginas
+    drop shadow=black!50!white,             % Sombra exterior
+    attach boxed title to top left={         % Posición del título
+        xshift=1cm,
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    minipage boxed title=5cm,               % Ancho máximo del título
+    boxed title style={                     % Estilo personalizado del título
+        colback=white,                      % Fondo blanco
+        size=fbox,                         % Tamaño tipo marco
+        boxrule=1pt,                        % Grosor del borde
+        boxsep=2pt,                         % Espaciado interno
+        underlay={                          % Elementos gráficos bajo el título
+            \coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
+            \coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
+            \begin{scope}
+                \clip (interior.north west) rectangle ([xshift=3ex]interior.east);
+                \filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, 
+                          rounded corners=2pt] (interior.north west) rectangle (interior.south east);
+            \end{scope}
+            \begin{scope}[gray!80!black]
+                \fill (dotA) circle (2pt);  % Punto decorativo izquierdo
+                \fill (dotB) circle (2pt);  % Punto decorativo derecho
+            \end{scope}
+        },
+    },
+    #1                                      % Personalización adicional
+}
+
+% --------------------------
+% Caja de Demostración
+% --------------------------
+\newtcbtheorem[]{demostracion}{Demostracion}%
+{ enhanced,
+  colback       = black!5,               % Color de fondo del recuadro
+  colbacktitle  = black!5,               % Color de fondo del título
+  coltitle      = black,                  % Color del texto del título
+  boxrule       = 0pt,                    % Ancho del borde del recuadro
+  frame hidden,                           % Oculta el marco del recuadro
+  borderline west = {0.5mm}{0.0mm}{black},% Línea decorativa en el lateral izquierdo
+  fonttitle     = \bfseries\sffamily,      % Fuente y estilo del título
+  breakable,                              % Permite que el recuadro se divida en varias páginas
+  before skip   = 3ex,                    % Espacio antes del entorno
+  after skip    = 3ex                     % Espacio después del entorno
+}{problem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONFIGURACIONES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Fallback para que el documento compile aunque babel no esté instalado.
+\providecommand{\spanishdecimal}[1]{ }
+% Ajusta el espaciado antes y después de los títulos de capítulos y secciones.
+\titlespacing*{\chapter}{0cm}{-2.0cm}{0.50cm} % {izquierda}{espacio antes}{espacio después}
+\titlespacing*{\section}{0cm}{0.50cm}{0.25cm}
+
+% Configura la indentación y separación entre párrafos.
+\setlength{\parindent}{0pt}  % Sin indentación en los párrafos
+\setlength{\parskip}{1ex}    % Espacio extra entre párrafos
+
+
+% Configuración de encabezados y pies con fancyhdr.
+\pagestyle{fancy}
+\fancyhf{}  % Limpia los encabezados y pies predeterminados
+\rfoot{%
+  \includegraphics[height=1cm]{Logo_FC.png} \hfill % Inserta un logo a la derecha
+  \textit{Página \thepage\ de \pageref{LastPage}}
+}
+
+\usetikzlibrary{arrows, backgrounds, shapes.arrows, positioning} % Librerías de TikZ para gráficos vectoriales
+\pgfplotsset{compat=newest}   % Asegura la compatibilidad con la versión más reciente de pgfplots
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINICIÓN DE ENTORNOS Y COMANDOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% definición del operador para \left( \right)
+\newcommand{\paren}[1]{\left({#1}\right)}
+
+% definición del operador para derivada
+\newcommand{\dd}[2]{\dfrac{\mathrm{d}#1}{\mathrm{d}#2}}
+
+% definición del operador para la función techo
+\newcommand{\techo}[1]{\lceil {#1} \rceil}
+
+% Redefine la numeración de listas para usar números (permite contadores más grandes que el sistema alfabético).
+\renewcommand{\theenumi}{\arabic{enumi})}
+
+% Comandos personalizados para mejorar la notación matemática.
+\let\emptyset\varnothing         % Utiliza el símbolo \varnothing para el conjunto vacío
+\newcommand{\lto}{\mathbin{\to}}   % Define un comando para la flecha "→"
+
+% Redefine los operadores de parte real e imaginaria para evitar conflictos.
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+% Definición de entornos para teoremas, corolarios, definiciones y proposiciones.
+\newtheorem{teorema}{Teorema}
+\newtheorem{corolario}{Corolario}
+\newtheorem{definición}{Definición}
+\newtheorem{proposición}{Proposición}
