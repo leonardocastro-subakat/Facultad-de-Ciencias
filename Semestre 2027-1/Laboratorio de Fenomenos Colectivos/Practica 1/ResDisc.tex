@@ -1,25 +1,296 @@
 \section{Resultados y Discusión}
 
-\subsection{Presentación de Datos Experimentales}
-% Presentar las mediciones cuantitativas en tablas y/o gráficas.
-%
-% Plantilla de tabla con booktabs:
-% \begin{table}[htbp]
-%     \centering
-%     \caption{Mediciones experimentales.}
-%     \label{tab:mediciones}
-%     \begin{tabular}{cccc}
-%         \toprule
-%         \textbf{Ensayo} & \textbf{Variable $x$ [unidad]} & \textbf{Variable $y$ [unidad]} & \textbf{Incertidumbre} \\
-%         \midrule
-%         1 & 0.00 & 0.00 & $\pm 0.01$ \\
-%         2 & 0.00 & 0.00 & $\pm 0.01$ \\
-%         \bottomrule
-%     \end{tabular}
-% \end{table}
+Los resultados se presentan en el mismo orden que las cuatro partes de la práctica. En cada una se muestran los datos procesados, se desarrolla explícitamente el cálculo de la densidad y de su incertidumbre para al menos un caso, y se compara con los valores de referencia; al final se discuten en conjunto las fuentes de incertidumbre y lo que el experimento permite afirmar.
 
-\subsection{Análisis Cuantitativo y Ajuste de Modelos}
-% Describir regresiones, ajustes por mínimos cuadrados y estimación de parámetros con incertidumbres.
+\subsection{Densidad del alambre}
 
-\subsection{Discusión de Resultados}
-% Interpretar físicamente las tendencias observadas y evaluar concordancia con la teoría.
+\subsubsection{Primera medición: regla, vernier y balanza granataria}
+
+Con los instrumentos sencillos el equipo E6 obtuvo $L = (33.0 \pm 0.5)\cm$, $d = (0.066 \pm 0.005)\cm$ y $m = (0.9 \pm 0.1)\g$. El volumen y la densidad se calcularon directamente con la ecuación \eqref{eq:rho}:
+\begin{equation*}
+    V = \frac{\pi (0.066\cm)^{2} (33.0\cm)}{4} = 0.1129\cmc, \qquad
+    \rho = \frac{0.9\g}{0.1129\cmc} = 7.97\gcm.
+\end{equation*}
+Las incertidumbres relativas de cada variable son $u_m/m = 0.1/0.9 = 0.111$, $2u_d/d = 2(0.005)/0.066 = 0.152$ y $u_L/L = 0.5/33.0 = 0.015$, y al combinarlas con la ecuación \eqref{eq:rho_rel},
+\begin{equation*}
+    \frac{u_\rho}{\rho} = \sqrt{0.111^{2} + 0.152^{2} + 0.015^{2}} = 0.189, \qquad u_\rho = 0.189 \times 7.97\gcm = 1.50\gcm,
+\end{equation*}
+de modo que el resultado de esta primera medición es $\rho = (8.0 \pm 1.5)\gcm$, con una incertidumbre relativa cercana al $19\,\%$. Ya en este cálculo se aprecia que el diámetro aporta $0.152^{2}/0.189^{2} = 65\,\%$ de la varianza y la masa el $35\,\%$, mientras que la longitud, a pesar de la incertidumbre generosa de medio centímetro, es prácticamente irrelevante. La razón está en la resolución relativa: una división del vernier es el $8\,\%$ del diámetro del alambre, y ese porcentaje se duplica al elevar al cuadrado; en cambio, medio centímetro es apenas el $1.5\,\%$ de la longitud.
+
+La tabla~\ref{tab:alambre_p1} reúne lo que reportaron los seis equipos del grupo con estos mismos instrumentos, cada uno sobre su propio trozo de alambre. Las densidades van de $5.1$ a $21.7\gcm$, con un promedio de $8.9\gcm$ y una desviación estándar de $6.3\gcm$ que está dominada por el valor del equipo E3. Ese equipo registró un diámetro de $0.040\cm$, casi $40\,\%$ menor que el de los demás, lo que al elevarse al cuadrado triplica la densidad; lo más probable es una lectura equivocada del nonio, y de hecho su propio intervalo de incertidumbre no alcanza a ninguno de los otros cinco resultados. Sin ese punto el promedio del grupo baja a $6.4\gcm$ con desviación estándar de $1.1\gcm$, que es del mismo orden que las incertidumbres individuales; es decir, la dispersión entre equipos se explica por la resolución de los instrumentos y no por diferencias reales entre los trozos.
+
+\begin{table}[H]
+    \centering
+    \caption{Mediciones del alambre reportadas por los seis equipos del grupo con regla, vernier y balanza granataria. El volumen y la densidad se calcularon con las ecuaciones \eqref{eq:rho} y \eqref{eq:rho_rel}.}
+    \label{tab:alambre_p1}
+    \begin{tabular}{c c c c c c}
+        \toprule
+        \textbf{Equipo} & $\bm{L}$ (cm) & $\bm{d}$ (cm) & $\bm{m}$ (g) & $\bm{V}$ (cm$^{3}$) & $\bm{\rho}$ (g/cm$^{3}$) \\
+        \midrule
+        E1 & $32.0 \pm 0.5$ & $0.078 \pm 0.005$   & $0.90 \pm 0.05$ & $0.153 \pm 0.020$ & $5.9 \pm 0.8$ \\
+        E2 & $33.0 \pm 0.5$ & $0.0740 \pm 0.0025$ & $1.00 \pm 0.05$ & $0.142 \pm 0.010$ & $7.1 \pm 0.6$ \\
+        E3 & $33.0 \pm 0.5$ & $0.040 \pm 0.005$   & $0.90 \pm 0.05$ & $0.042 \pm 0.010$ & $21.7 \pm 5.6$ \\
+        E4 & $32.0 \pm 0.5$ & $0.078 \pm 0.005$   & $0.9 \pm 0.1$   & $0.153 \pm 0.020$ & $5.9 \pm 1.0$ \\
+        E5 & $33.0 \pm 0.5$ & $0.087 \pm 0.005$   & $1.00 \pm 0.05$ & $0.196 \pm 0.023$ & $5.1 \pm 0.6$ \\
+        E6 & $33.0 \pm 0.5$ & $0.066 \pm 0.005$   & $0.9 \pm 0.1$   & $0.113 \pm 0.017$ & $8.0 \pm 1.5$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Segunda medición: micrómetro digital y balanza analítica}
+
+Las quince lecturas del diámetro y de la masa se muestran completas en la tabla~\ref{tab:alambre_crudo} del apéndice, y la gráfica~\ref{gr:diametro} resume las del diámetro. Con las ecuaciones \eqref{eq:media} y \eqref{eq:desv} se obtuvo
+\begin{equation*}
+    \bar{d} = 0.06454\cm, \quad s_d = 0.00085\cm, \quad s_{\bar d} = \frac{0.00085\cm}{\sqrt{15}} = 0.00022\cm,
+\end{equation*}
+\begin{equation*}
+    \bar{m} = 0.94046\g, \quad s_m = 0.00007\g, \quad s_{\bar m} = 0.00002\g.
+\end{equation*}
+La dispersión del diámetro, de $0.0085\mm$ entre lecturas, es ocho veces mayor que la resolución del micrómetro y refleja una variación real del grosor del alambre a lo largo de su longitud, junto con el efecto de cómo se cierra el tornillo; en particular la tercera lectura, de $0.0673\cm$, se aleja más de tres desviaciones estándar del resto. No se encontró en las notas una causa verificable para descartarla, así que se conservó, aunque conviene saber que sin ella la densidad final subiría en $0.05\gcm$, un tercio de su incertidumbre. La masa, en cambio, se repite dentro de una o dos unidades del último dígito, por lo que su incertidumbre queda fijada por la especificación de la balanza. Combinando ambas contribuciones con la ecuación \eqref{eq:combinada},
+\begin{equation*}
+    u_d = \sqrt{(0.00022)^{2} + (0.0001)^{2}}\cm = 0.00024\cm, \qquad
+    u_m = \sqrt{(0.00002)^{2} + (0.00022)^{2}}\g = 0.00022\g,
+\end{equation*}
+y la longitud siguió siendo $L = (33.0 \pm 0.5)\cm$.
+
+\begin{grafica}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuras/alambre_diametro.png}
+    \caption{Quince lecturas del diámetro del alambre con el micrómetro digital. La línea es la media y la banda sombreada cubre una desviación estándar $s$ a cada lado; las barras de las lecturas individuales corresponden a la resolución del instrumento y son apenas visibles.}
+    \label{gr:diametro}
+\end{grafica}
+
+El volumen y la densidad resultan
+\begin{equation*}
+    V = \frac{\pi (0.06454\cm)^{2}(33.0\cm)}{4} = 0.10796\cmc, \qquad
+    \rho = \frac{0.94046\g}{0.10796\cmc} = 8.711\gcm,
+\end{equation*}
+y las contribuciones relativas a la incertidumbre, según la ecuación \eqref{eq:rho_rel}, son
+\begin{equation*}
+    \frac{u_m}{m} = \frac{0.00022}{0.94046} = 0.00023, \qquad
+    \frac{2u_d}{d} = \frac{2(0.00024)}{0.06454} = 0.0074, \qquad
+    \frac{u_L}{L} = \frac{0.5}{33.0} = 0.0152,
+\end{equation*}
+\begin{equation*}
+    \frac{u_\rho}{\rho} = \sqrt{(0.00023)^{2} + (0.0074)^{2} + (0.0152)^{2}} = 0.0169, \qquad u_\rho = 0.0169 \times 8.711\gcm = 0.147\gcm.
+\end{equation*}
+El resultado del equipo es entonces
+\begin{equation}
+    \rho = (8.71 \pm 0.15)\gcm \ \ (\text{incertidumbre estándar}), \qquad
+    \rho = (8.7 \pm 0.3)\gcm \ \ (95\,\%\ \text{de confianza}),
+    \label{eq:rho_final}
+\end{equation}
+con una incertidumbre relativa de $1.7\,\%$, once veces menor que la de la primera medición. El reparto de la varianza cambió por completo: ahora la longitud aporta el $80\,\%$, el diámetro el $20\,\%$ y la masa una fracción despreciable. Esto responde a la pregunta de la práctica sobre qué instrumento contribuye más a la incertidumbre: con vernier y granataria era el vernier; con micrómetro y balanza analítica el cuello de botella se desplazó a la regla, que fue el único instrumento que no se cambió. Repetir el cálculo con una cinta métrica de $1\mm$ de división, es decir $u_L = 0.05\cm$, daría $u_\rho = 0.07\gcm$, la mitad de la actual, y entonces el diámetro volvería a ser la variable limitante. Tiene poco sentido, en cambio, seguir mejorando la masa: su contribución ya es unas cuatro mil veces menor que la de la longitud. Esta es la idea de compatibilizar instrumentos que menciona la guía del curso \cite{guia}: las cifras que aporta la balanza analítica se pierden al combinarse con una regla de centímetros.
+
+En la tabla~\ref{tab:alambre_p3} están los resultados de los seis equipos con los instrumentos de mejor resolución. Los valores se agrupan entre $8.3$ y $8.8\gcm$, con promedio $8.61\gcm$ y desviación estándar $0.17\gcm$; la dispersión entre equipos bajó de $6.3$ a $0.17\gcm$, una mejora de un factor 37 que ilustra la diferencia entre un conjunto de mediciones poco precisas y uno preciso. El valor de $8.60\gcm$ que el equipo E6 anotó en la tabla del grupo durante la sesión difiere del $8.71\gcm$ de la ecuación \eqref{eq:rho_final} porque fue un cálculo preliminar; es consistente con haberse hecho con una sola lectura del diámetro, de $0.0649\cm$, y ambos valores son compatibles dentro de la incertidumbre. El valor del equipo E3, de nuevo el más bajo, se separa dos desviaciones estándar del promedio.
+
+\begin{table}[H]
+    \centering
+    \caption{Densidad del alambre reportada por los seis equipos con micrómetro y balanza electrónica, tal como se anotó en la tabla del grupo. Los equipos E4 y E5 no reportaron incertidumbre.}
+    \label{tab:alambre_p3}
+    \begin{tabular}{c c c c c c c}
+        \toprule
+        \textbf{Equipo} & E1 & E2 & E3 & E4 & E5 & E6 \\
+        \midrule
+        $\rho$ (g/cm$^{3}$) & $8.72 \pm 0.02$ & $8.78 \pm 0.00$ & $8.29 \pm 0.15$ & $8.65$ & $8.60$ & $8.60 \pm 0.13$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Comparación con valores de referencia e identificación del material}
+
+Antes de la práctica el candidato natural era el cobre, cuya densidad de referencia es $8.94\gcm$ según Callister \cite{callister} y $8.9\gcm$ según Sears y Zemansky \cite{sears}. El otro material de aspecto parecido es el latón, una aleación de cobre y zinc cuya densidad depende de la composición y va de $8.4$ a $8.7\gcm$; el latón de cartuchería, con $30\,\%$ de zinc, tiene $8.53\gcm$ \cite{callister}, y el valor genérico que da Sears y Zemansky es $8.6\gcm$ \cite{sears}. El intervalo estándar de nuestro resultado, de $8.56$ a $8.86\gcm$, contiene al latón pero no al cobre, que queda a $1.7$ incertidumbres estándar por encima; el intervalo al $95\,\%$, de $8.42$ a $9.01\gcm$, contiene a ambos. Con la incertidumbre alcanzada el experimento distingue cobre de latón sólo de manera marginal, y por sí solo favorece al latón.
+
+El promedio del grupo apunta en la misma dirección. Los seis equipos obtuvieron $8.61\gcm$ con una incertidumbre de la media de $0.17/\sqrt{6} = 0.07\gcm$, lo que coincide con el valor tabulado del latón y queda casi cinco incertidumbres por debajo del cobre. Como cada equipo midió un trozo distinto, y como todos usaron la misma regla de centímetros, la coincidencia entre equipos puede deberse a que el material es efectivamente latón o a que hay un efecto sistemático compartido que reduce la densidad aparente. Vale la pena examinar el segundo caso. Un sesgo en la longitud tendría que ser una sobreestimación de $2.6\,\%$, casi un centímetro, mayor que la incertidumbre asignada y poco plausible si el alambre estaba recto; una curvatura residual actuaría en sentido contrario, acortando la lectura y aumentando la densidad. Un sesgo en el diámetro es más creíble: si el alambre tiene un recubrimiento de barniz aislante, como es común en el alambre magneto de cobre, el micrómetro mide el diámetro exterior mientras que la masa del recubrimiento es despreciable, y basta una capa de unos $5\,\mu\mathrm{m}$ de espesor para bajar la densidad aparente del cobre de $8.94$ a $8.71\gcm$, ya que la densidad va como el inverso del cuadrado del diámetro. El experimento no permite decidir entre las dos explicaciones, pero sí sugiere pruebas sencillas para hacerlo: raspar un extremo y observar si aparece un color distinto, medir el diámetro en la zona raspada, o medir la resistencia eléctrica del alambre, pues la resistividad del latón es unas cuatro veces mayor que la del cobre. Mientras tanto, la respuesta más honesta a la pregunta de la práctica es que el alambre es de una aleación de cobre, latón o cobre recubierto, con densidad de $(8.71 \pm 0.15)\gcm$.
+
+\subsection{Densidad de once cilindros: masa contra volumen}
+
+La tabla~\ref{tab:p12} contiene las dos repeticiones de volumen y de masa de cada cilindro, sus promedios con incertidumbre y la densidad individual calculada como $\bar m/\bar V$. Las incertidumbres de la masa son de una o dos unidades del último dígito de la balanza; las del volumen están dominadas, en la mayoría de los cilindros, por el $1\,\%$ instrumental, pero en los cilindros 2, 7 y 8 las dos repeticiones difieren mucho más que eso, hasta un $27\,\%$ en el cilindro 2, y allí la incertidumbre la fija la mitad de la diferencia entre repeticiones. Esas diferencias no pueden atribuirse a la resolución del vernier, así que corresponden a lecturas equivocadas o a una pieza mal colocada entre las mordazas; se conservaron ambas lecturas y se dejó que la incertidumbre las refleje, siguiendo el criterio de no descartar datos sin una causa verificable \cite{coleman}.
+
+\begin{table}[H]
+    \centering
+    \caption{Once cilindros de la parte 1.2: repeticiones de volumen y masa, promedios con incertidumbre y densidad individual.}
+    \label{tab:p12}
+    \begin{tabular}{c c c c c c c}
+        \toprule
+        \textbf{Cil.} & $\bm{V_1}$ (cm$^{3}$) & $\bm{V_2}$ (cm$^{3}$) & $\bm{\bar V}$ (cm$^{3}$) & $\bm{m_1,\ m_2}$ (g) & $\bm{\bar m}$ (g) & $\bm{\rho}$ (g/cm$^{3}$) \\
+        \midrule
+        1  & 1.460 & 1.450 & $1.455 \pm 0.015$ & 12.35, 12.36 & $12.355 \pm 0.011$ & $8.49 \pm 0.09$ \\
+        2  & 1.550 & 1.964 & $1.76 \pm 0.21$   & 17.37, 17.38 & $17.375 \pm 0.011$ & $9.9 \pm 1.2$ \\
+        3  & 2.316 & 2.312 & $2.314 \pm 0.023$ & 19.62, 19.62 & $19.620 \pm 0.010$ & $8.48 \pm 0.09$ \\
+        4  & 2.474 & 2.479 & $2.477 \pm 0.025$ & 22.13, 22.12 & $22.125 \pm 0.011$ & $8.93 \pm 0.09$ \\
+        5  & 2.828 & 2.824 & $2.826 \pm 0.028$ & 24.05, 24.05 & $24.050 \pm 0.010$ & $8.51 \pm 0.09$ \\
+        6  & 2.122 & 2.117 & $2.119 \pm 0.021$ & 27.89, 27.89 & $27.890 \pm 0.010$ & $13.16 \pm 0.13$ \\
+        7  & 3.228 & 3.341 & $3.285 \pm 0.065$ & 28.24, 28.24 & $28.240 \pm 0.010$ & $8.60 \pm 0.17$ \\
+        8  & 3.630 & 3.855 & $3.74 \pm 0.12$   & 34.27, 34.28 & $34.275 \pm 0.011$ & $9.16 \pm 0.29$ \\
+        9  & 3.957 & 3.957 & $3.957 \pm 0.040$ & 33.67, 33.67 & $33.670 \pm 0.010$ & $8.51 \pm 0.09$ \\
+        10 & 4.405 & 4.483 & $4.444 \pm 0.059$ & 39.13, 39.13 & $39.130 \pm 0.010$ & $8.81 \pm 0.12$ \\
+        11 & 5.444 & 5.458 & $5.451 \pm 0.055$ & 38.65, 38.65 & $38.650 \pm 0.010$ & $7.09 \pm 0.07$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Ajuste global}
+
+Con los once promedios se formaron las columnas $x = \bar V$, $y = \bar m$, $x^{2}$ y $xy$ y se sumaron, obteniendo $n = 11$, $\sum x = 33.827\cmc$, $\sum y = 297.38\g$, $\sum x^{2} = 119.085\,\mathrm{cm^{6}}$ y $\sum xy = 1014.61\,\mathrm{g\,cm^{3}}$. Con las ecuaciones \eqref{eq:mc} a \eqref{eq:delta},
+\begin{equation*}
+    \Delta = 11(119.085) - (33.827)^{2} = 165.67\,\mathrm{cm^{6}},
+\end{equation*}
+\begin{equation*}
+    p = \frac{11(1014.61) - (33.827)(297.38)}{165.67} = 6.65\gcm, \qquad
+    b = \frac{(119.085)(297.38) - (1014.61)(33.827)}{165.67} = 6.59\g.
+\end{equation*}
+La incertidumbre efectiva instrumental promedio de los puntos, $\sqrt{u_m^{2} + p^{2}u_V^{2}}$, es de $0.54\g$, pero la desviación estándar de los residuos resulta $s_{\mathrm{res}} = 3.51\g$, seis veces y media mayor. Los puntos se apartan de la recta mucho más de lo que sus incertidumbres permiten, y por ello se usó $s_{\mathrm{res}}$ como $u_{\mathrm{ef}}$ en la ecuación \eqref{eq:mc_unc}:
+\begin{equation*}
+    u_p = 3.51\g\sqrt{\frac{11}{165.67\,\mathrm{cm^{6}}}} = 0.91\gcm, \qquad
+    u_b = 3.51\g\sqrt{\frac{119.085}{165.67}} = 2.98\g,
+\end{equation*}
+de modo que la recta global es $m = (6.6 \pm 0.9)\gcm\, V + (6.6 \pm 3.0)\g$. Esta recta, dibujada con línea discontinua en la gráfica~\ref{gr:p12}, no pasa por ninguno de los puntos experimentales y tampoco por el origen: su ordenada al origen está a más de dos incertidumbres de cero, lo que físicamente no tiene sentido, pues un cilindro sin volumen no puede tener seis gramos de masa. La pendiente de $6.6\gcm$ tampoco corresponde a ningún metal razonable para piezas de este aspecto. Lo que ocurre es que el modelo de una sola recta, es decir, la hipótesis de que los once cilindros son del mismo material, no describe a los datos, y el ajuste global sólo produce un promedio sin significado físico. Que una recta ajustada no pase por los puntos no es en sí un problema, ya que la recta representa la tendencia y no las mediciones individuales; el problema aparece cuando los residuos son sistemáticamente mayores que las incertidumbres, como aquí, porque entonces no es la dispersión aleatoria lo que separa los puntos de la recta sino el modelo.
+
+\begin{grafica}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/p12_ajuste.png}
+    \caption{Masa contra volumen de los once cilindros. La línea discontinua es el ajuste global a los once puntos; las líneas continuas son los ajustes independientes de los grupos A y B. Los cilindros 2, 6 y 11 no se asignaron a ningún grupo. Las barras de incertidumbre corresponden a los valores de la tabla~\ref{tab:p12}.}
+    \label{gr:p12}
+\end{grafica}
+
+\subsubsection{Separación en grupos y ajustes independientes}
+
+Las densidades individuales de la tabla~\ref{tab:p12} sugieren por sí solas la separación. Cinco cilindros, el 1, 3, 5, 7 y 9, tienen densidades entre $8.48$ y $8.60\gcm$ que son compatibles entre sí dentro de sus incertidumbres, y forman el grupo A. Los cilindros 4, 8 y 10, con $8.81$ a $9.16\gcm$, están sistemáticamente por encima del grupo A y son compatibles entre sí, aunque el 8 tiene una incertidumbre grande; forman el grupo B. Los tres restantes no encajan en ninguno: el cilindro 6 da $(13.16 \pm 0.13)\gcm$, el 11 da $(7.09 \pm 0.07)\gcm$, y el 2 tiene una incertidumbre tan grande, $(9.9 \pm 1.2)\gcm$, que podría pertenecer al grupo B o ser otra cosa, según cuál de sus dos lecturas de volumen sea la correcta.
+
+Para el grupo A, con $n = 5$, las sumas son $\sum x = 13.837\cmc$, $\sum y = 117.935\g$, $\sum x^{2} = 41.904\,\mathrm{cm^{6}}$, $\sum xy = 357.33\,\mathrm{g\,cm^{3}}$ y $\Delta = 5(41.904) - (13.837)^{2} = 18.07\,\mathrm{cm^{6}}$, con lo que
+\begin{equation*}
+    p_A = \frac{5(357.33) - (13.837)(117.935)}{18.07} = 8.57\gcm, \qquad
+    b_A = \frac{(41.904)(117.935) - (357.33)(13.837)}{18.07} = -0.13\g.
+\end{equation*}
+Aquí la desviación estándar de los residuos, $0.15\g$, es menor que la incertidumbre instrumental efectiva, $0.33\g$, así que se usó esta última y se obtuvo $u_{p_A} = 0.33\sqrt{5/18.07} = 0.17\gcm$ y $u_{b_A} = 0.33\sqrt{41.904/18.07} = 0.50\g$. El resultado, $m = (8.57 \pm 0.17)\gcm\, V + (-0.1 \pm 0.5)\g$, tiene ordenada al origen compatible con cero, como debe ser, y su pendiente coincide con el promedio de las densidades individuales, $8.52\gcm$. Para el grupo B, con sólo tres puntos, se obtuvo $p_B = (8.8 \pm 0.7)\gcm$ y $b_B = (0.7 \pm 2.5)\g$; la incertidumbre es grande porque los residuos, de $0.97\g$, superan a la estimación instrumental y porque tres puntos dan poca palanca a la pendiente.
+
+\subsubsection{Identificación de los materiales}
+
+La densidad del grupo A, $(8.57 \pm 0.17)\gcm$, es compatible con el latón, cuyo valor de referencia va de $8.4$ a $8.7\gcm$ \cite{sears, callister}, y excluye al cobre, que queda a más de dos incertidumbres. La del grupo B, $(8.8 \pm 0.7)\gcm$, es compatible con el cobre y con el bronce, cuyas densidades están alrededor de $8.9\gcm$, pero con esa incertidumbre tampoco excluye al latón; el promedio de sus densidades individuales, $8.97\gcm$, y el hecho de que los tres estén por encima del grupo A hacen del cobre el candidato más probable. El cilindro 11, con $(7.09 \pm 0.07)\gcm$, coincide con el zinc, de $7.13\gcm$ \cite{callister}, y quedaría también cerca del hierro fundido; el acero, de $7.85\gcm$, está a más de diez incertidumbres. El cilindro 6, con $(13.16 \pm 0.13)\gcm$, no corresponde a ningún metal de uso común: el más denso que suele haber en un laboratorio es el plomo, con $11.34\gcm$, y para llegar a ese valor el volumen tendría que estar subestimado en un $14\,\%$, lo que sería un error de medición y no una incertidumbre. Ambas repeticiones de su volumen coinciden, así que el error, si lo hubo, se repitió, por ejemplo al medir la altura en un cilindro con un chaflán o un hueco. Lo razonable es reportarlo como no identificado y proponer repetir su medición, de preferencia por desplazamiento de agua.
+
+Este ejercicio deja una lección clara sobre la interpretación del ajuste lineal. Comparar las densidades individuales con la del ajuste general, como pide la práctica, muestra que el ajuste general no representa a nadie: ningún cilindro tiene $6.6\gcm$. Sólo después de separar en grupos las pendientes vuelven a coincidir con las densidades individuales y las ordenadas al origen regresan a cero. La hipótesis de un solo material se puso a prueba y falló, y esa falla es un resultado, no un fracaso del experimento.
+
+\subsection{Densidad de cuatro familias de cilindros}
+
+Los promedios de las dos repeticiones de diámetro, altura y masa de cada cilindro, junto con el volumen y la densidad individual, están en la tabla~\ref{tab:p13}; las lecturas crudas se listan en la tabla~\ref{tab:p13_crudo} del apéndice. Con el micrómetro las repeticiones coinciden casi siempre dentro de unas milésimas de milímetro, de modo que la incertidumbre del volumen es de unas pocas décimas de por ciento, y la incertidumbre de la densidad queda dominada por la balanza de $0.01\g$, sobre todo en los cilindros más ligeros: en el cilindro blanco más pequeño, de $0.185\g$, la balanza aporta un $6\,\%$ de incertidumbre relativa. La excepción es el primer cilindro amarillo, cuyas dos lecturas de diámetro difieren en $0.27\mm$; de nuevo se conservaron ambas y la incertidumbre resultante lo refleja.
+
+\begin{table}[!htb]
+    \centering
+    \small
+    \caption{Cilindros de la parte 1.3. Promedios de las dos repeticiones con su incertidumbre, volumen calculado y densidad individual.}
+    \label{tab:p13}
+    \begin{tabular}{c c c c c c c}
+        \toprule
+        \textbf{Familia} & \textbf{Cil.} & $\bm{d}$ (mm) & $\bm{h}$ (mm) & $\bm{m}$ (g) & $\bm{V}$ (cm$^{3}$) & $\bm{\rho}$ (g/cm$^{3}$) \\
+        \midrule
+        \multirow{6}{*}{Blancos}
+          & 1 & $9.983 \pm 0.006$  & $2.082 \pm 0.002$  & $0.185 \pm 0.011$ & $0.1630 \pm 0.0003$ & $1.14 \pm 0.07$ \\
+          & 2 & $9.793 \pm 0.004$  & $3.936 \pm 0.009$  & $0.340 \pm 0.010$ & $0.2965 \pm 0.0007$ & $1.147 \pm 0.034$ \\
+          & 3 & $9.959 \pm 0.003$  & $6.103 \pm 0.005$  & $0.540 \pm 0.010$ & $0.4754 \pm 0.0005$ & $1.136 \pm 0.021$ \\
+          & 4 & $9.887 \pm 0.003$  & $8.016 \pm 0.007$  & $0.720 \pm 0.010$ & $0.6155 \pm 0.0006$ & $1.170 \pm 0.016$ \\
+          & 5 & $9.991 \pm 0.009$  & $10.046 \pm 0.047$ & $0.915 \pm 0.011$ & $0.7876 \pm 0.0039$ & $1.162 \pm 0.015$ \\
+          & 6 & $9.942 \pm 0.001$  & $12.084 \pm 0.006$ & $1.085 \pm 0.011$ & $0.9382 \pm 0.0005$ & $1.156 \pm 0.012$ \\
+        \midrule
+        \multirow{6}{*}{Amarillos}
+          & 1 & $9.82 \pm 0.13$    & $2.072 \pm 0.001$  & $1.310 \pm 0.010$ & $0.1571 \pm 0.0043$ & $8.34 \pm 0.24$ \\
+          & 2 & $9.960 \pm 0.001$  & $3.975 \pm 0.002$  & $2.620 \pm 0.010$ & $0.3097 \pm 0.0002$ & $8.459 \pm 0.033$ \\
+          & 3 & $9.944 \pm 0.002$  & $5.997 \pm 0.006$  & $3.930 \pm 0.010$ & $0.4657 \pm 0.0005$ & $8.439 \pm 0.023$ \\
+          & 4 & $9.954 \pm 0.002$  & $8.014 \pm 0.002$  & $5.280 \pm 0.010$ & $0.6237 \pm 0.0003$ & $8.466 \pm 0.016$ \\
+          & 5 & $9.992 \pm 0.001$  & $10.062 \pm 0.002$ & $6.685 \pm 0.011$ & $0.7891 \pm 0.0002$ & $8.471 \pm 0.014$ \\
+          & 6 & $9.994 \pm 0.002$  & $11.934 \pm 0.006$ & $7.925 \pm 0.011$ & $0.9361 \pm 0.0006$ & $8.466 \pm 0.013$ \\
+        \midrule
+        \multirow{6}{*}{Plateados}
+          & 1 & $9.995 \pm 0.008$  & $2.066 \pm 0.012$  & $0.420 \pm 0.010$ & $0.1621 \pm 0.0010$ & $2.59 \pm 0.06$ \\
+          & 2 & $9.944 \pm 0.010$  & $4.021 \pm 0.025$  & $0.830 \pm 0.010$ & $0.3123 \pm 0.0020$ & $2.658 \pm 0.036$ \\
+          & 3 & $9.936 \pm 0.003$  & $6.037 \pm 0.002$  & $1.255 \pm 0.011$ & $0.4681 \pm 0.0003$ & $2.681 \pm 0.024$ \\
+          & 4 & $9.952 \pm 0.004$  & $8.071 \pm 0.002$  & $1.685 \pm 0.011$ & $0.6278 \pm 0.0005$ & $2.684 \pm 0.018$ \\
+          & 5 & $10.000 \pm 0.003$ & $10.024 \pm 0.002$ & $2.120 \pm 0.010$ & $0.7872 \pm 0.0005$ & $2.693 \pm 0.013$ \\
+          & 6 & $9.944 \pm 0.005$  & $12.016 \pm 0.002$ & $2.510 \pm 0.010$ & $0.9333 \pm 0.0009$ & $2.689 \pm 0.011$ \\
+        \midrule
+        \multirow{6}{*}{Cafés}
+          & 1 & $10.085 \pm 0.026$ & $2.072 \pm 0.008$  & $1.410 \pm 0.010$ & $0.1655 \pm 0.0011$ & $8.52 \pm 0.08$ \\
+          & 2 & $10.024 \pm 0.001$ & $4.006 \pm 0.002$  & $2.800 \pm 0.010$ & $0.3161 \pm 0.0002$ & $8.857 \pm 0.032$ \\
+          & 3 & $9.986 \pm 0.005$  & $6.037 \pm 0.001$  & $4.190 \pm 0.010$ & $0.4729 \pm 0.0005$ & $8.861 \pm 0.023$ \\
+          & 4 & $9.957 \pm 0.003$  & $7.965 \pm 0.001$  & $5.520 \pm 0.010$ & $0.6201 \pm 0.0003$ & $8.902 \pm 0.017$ \\
+          & 5 & $9.901 \pm 0.006$  & $9.892 \pm 0.001$  & $6.770 \pm 0.010$ & $0.7616 \pm 0.0009$ & $8.890 \pm 0.017$ \\
+          & 6 & $9.866 \pm 0.007$  & $12.084 \pm 0.001$ & $8.210 \pm 0.010$ & $0.9237 \pm 0.0012$ & $8.888 \pm 0.016$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Ajustes por mínimos cuadrados}
+
+El procedimiento se ilustra con la familia de cilindros amarillos. Con $x = V$ y $y = m$ las sumas son $n = 6$, $\sum x = 3.2814\cmc$, $\sum y = 27.750\g$, $\sum x^{2} = 2.2254\,\mathrm{cm^{6}}$ y $\sum xy = 18.834\,\mathrm{g\,cm^{3}}$, de donde
+\begin{equation*}
+    \Delta = 6(2.2254) - (3.2814)^{2} = 2.5849\,\mathrm{cm^{6}}, \qquad
+    p = \frac{6(18.834) - (3.2814)(27.750)}{2.5849} = 8.490\gcm,
+\end{equation*}
+\begin{equation*}
+    b = \frac{(2.2254)(27.750) - (18.834)(3.2814)}{2.5849} = -0.018\g.
+\end{equation*}
+La incertidumbre efectiva instrumental promedio, $\sqrt{u_m^{2} + p^{2}u_V^{2}}$, vale $0.018\g$, y esta vez es mayor que la desviación estándar de los residuos, de $0.007\g$, así que los puntos se ajustan a la recta incluso mejor de lo que sus incertidumbres exigen y se usó la estimación instrumental:
+\begin{equation*}
+    u_p = 0.018\g\sqrt{\frac{6}{2.5849\,\mathrm{cm^{6}}}} = 0.028\gcm, \qquad
+    u_b = 0.018\g\sqrt{\frac{2.2254}{2.5849}} = 0.017\g.
+\end{equation*}
+El mismo cálculo se repitió para las otras tres familias y los resultados se reúnen en la tabla~\ref{tab:p13_ajustes} y en la gráfica~\ref{gr:p13}. En las cuatro familias los residuos son del orden de la incertidumbre instrumental o menores, de modo que la hipótesis de un solo material por familia es consistente con los datos, y las incertidumbres relativas de las pendientes quedan entre $0.3\,\%$ y $1.4\,\%$.
+
+\begin{table}[H]
+    \centering
+    \caption{Resultados de los ajustes $m = pV + b$ para las cuatro familias, promedio de las densidades individuales de la tabla~\ref{tab:p13}, valor de referencia y material propuesto. Las referencias son de Callister \cite{callister}; para el latón se indica el intervalo usual y el valor del latón de cartuchería.}
+    \label{tab:p13_ajustes}
+    \begin{tabular}{l c c c c c l}
+        \toprule
+        \textbf{Familia} & $\bm{p}$ (g/cm$^{3}$) & $\bm{b}$ (g) & $\bm{u_{\mathrm{ef}}}$ (g) & $\bm{\bar\rho_i}$ (g/cm$^{3}$) & \textbf{Ref.} (g/cm$^{3}$) & \textbf{Material} \\
+        \midrule
+        Blancos   & $1.167 \pm 0.016$ & $-0.006 \pm 0.010$ & 0.011 & 1.151 & 1.14 / 1.19 & nailon o acrílico \\
+        Amarillos & $8.490 \pm 0.028$ & $-0.018 \pm 0.017$ & 0.018 & 8.440 & 8.4 a 8.7 (8.53) & latón \\
+        Plateados & $2.711 \pm 0.017$ & $-0.017 \pm 0.010$ & 0.011 & 2.666 & 2.71 & aluminio \\
+        Cafés     & $8.957 \pm 0.029$ & $-0.050 \pm 0.017$ & 0.018 & 8.819 & 8.94 & cobre \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{grafica}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/p13_ajuste.png}
+    \caption{Masa contra volumen de las cuatro familias de cilindros con sus rectas de mínimos cuadrados. Las barras de incertidumbre son menores que el tamaño de los marcadores en casi todos los puntos.}
+    \label{gr:p13}
+\end{grafica}
+
+\subsubsection{Identificación de los materiales y significado de la ordenada al origen}
+
+La identificación es inmediata en tres de las cuatro familias. Los cilindros amarillos, con $(8.490 \pm 0.028)\gcm$, caen dentro del intervalo del latón y a menos de dos incertidumbres del latón de cartuchería, mientras que el cobre queda a dieciséis incertidumbres, así que son de latón. Los plateados, con $(2.711 \pm 0.017)\gcm$, coinciden con el aluminio, de $2.71\gcm$, y ningún otro metal común se le acerca. Los cafés, con $(8.957 \pm 0.029)\gcm$, coinciden con el cobre, de $8.94\gcm$, y excluyen al latón, que queda a más de ocho incertidumbres; el color rojizo confirma la asignación. Aquí, a diferencia de lo que ocurrió con el alambre, la incertidumbre alcanzada sí permite separar cobre de latón, y eso se debe a que la pieza es mil veces más masiva y a que todas las dimensiones se midieron con el micrómetro. Los cilindros blancos, con $(1.167 \pm 0.016)\gcm$, son claramente un polímero. Su densidad queda entre la del nailon 6,6, de $1.14\gcm$, y la del acrílico, de $1.19\gcm$, a menos de dos incertidumbres de cada uno, así que la densidad sola no decide entre ambos; excluye en cambio al polietileno, al poliestireno, al PVC y al acetal, cuyas densidades están fuera de ese intervalo. Por su aspecto blanco y opaco el nailon parece el candidato más razonable, pero para confirmarlo haría falta otra prueba, como la flotación en una disolución salina de densidad conocida.
+
+En las cuatro familias la pendiente es un poco mayor que el promedio de las densidades individuales, y en las cuatro la ordenada al origen es negativa. Esto no es casualidad. Si se revisa la tabla~\ref{tab:p13} se ve que en cada familia el cilindro más pequeño tiene la densidad individual más baja, y que la densidad va aumentando con la altura hasta estabilizarse; el efecto es más claro en los cafés, donde el primer cilindro da $8.52\gcm$ y los demás $8.86$ a $8.90\gcm$. Un desplazamiento de cero en la balanza produciría la misma ordenada en las cuatro familias, pero las ordenadas obtenidas van de $-0.006$ a $-0.050\g$ y crecen aproximadamente con la densidad del material. Lo que crece con la densidad es la masa asociada a un volumen fijo, así que la explicación más sencilla es un déficit constante de volumen en cada pieza, $b = -\rho\,\Delta V$, con $\Delta V$ entre $0.002$ y $0.006\cmc$, es decir, unos cuantos milímetros cúbicos. Un chaflán o un ligero redondeo en los bordes de las caras, que quita la misma cantidad de material en todos los cilindros de un mismo diámetro, produce exactamente eso. El déficit es pequeño, pero en un cilindro de $0.16\cmc$ representa entre $1$ y $4\,\%$ del volumen, y por eso las densidades individuales de las piezas pequeñas salen bajas. La pendiente, que sólo mira cómo cambia la masa con el volumen, es inmune a ese sesgo, y es por tanto un mejor estimador de la densidad que el promedio de los cocientes; con los cafés la diferencia entre ambos estimadores, $8.96$ contra $8.82\gcm$, es la que decide entre cobre y una aleación.
+
+\subsection{Cuenta de cacahuates}
+
+Las masas de los diez cacahuates de la muestra fueron $1.42$, $1.41$, $1.08$, $1.35$, $1.02$, $1.18$, $1.17$, $1.27$, $0.47$ y $0.98\g$ (gráfica~\ref{gr:cacahuates}), y como masa total se tomó el contenido neto de la etiqueta, $M = (850 \pm 15)\g$. Con las ecuaciones \eqref{eq:media} y \eqref{eq:desv},
+\begin{equation*}
+    \bar m = 1.135\g, \qquad s = 0.280\g, \qquad s_{\bar m} = \frac{0.280\g}{\sqrt{10}} = 0.089\g,
+\end{equation*}
+y como la resolución de la balanza, $0.01\g$, es despreciable frente a $s_{\bar m}$, la incertidumbre de la masa promedio es $u_{\bar m} = 0.089\g$, un $7.8\,\%$. El número de cacahuates y su incertidumbre, por la ecuación \eqref{eq:cacahuates}, son
+\begin{equation*}
+    N = \frac{850\g}{1.135\g} = 748.9, \qquad
+    \frac{u_N}{N} = \sqrt{\left(\frac{0.089}{1.135}\right)^{2} + \left(\frac{15}{850}\right)^{2}} = 0.080, \qquad u_N = 0.080 \times 748.9 = 60,
+\end{equation*}
+es decir, $N = 750 \pm 60$ cacahuates con incertidumbre estándar, o $750 \pm 120$ al $95\,\%$. Casi toda la incertidumbre proviene de la variabilidad natural de las masas de los cacahuates: la tolerancia asignada a la etiqueta aporta sólo un $5\,\%$ de la varianza y la balanza nada apreciable. En este problema el instrumento importa poco y el tamaño de la muestra lo es todo.
+
+El cacahuate 9, de $0.47\g$, pesa menos de la mitad que el promedio y se aleja $2.4$ desviaciones estándar de la media; probablemente era una pieza rota o sin cubierta completa. Como no se registró una observación que lo confirme, no se descartó, pero conviene saber cómo cambia el resultado sin él: con los nueve restantes el promedio sube a $1.209\g$, la dispersión baja a $0.164\g$ y se obtiene $N = 703 \pm 35$. Ambas estimaciones son compatibles, pues difieren en $46$ piezas mientras que la suma en cuadratura de sus incertidumbres es de $69$, así que la conclusión no depende de esa decisión. Lo que sí muestra la comparación es que, con una muestra tan pequeña, un solo cacahuate atípico mueve el resultado un $6\,\%$. Para reducir la incertidumbre relativa al $2\,\%$ habría que pesar alrededor de $\left(0.280/(0.02 \times 1.135)\right)^{2} \approx 150$ cacahuates, y para el $5\,\%$ unos $25$; una bolsa de $850\g$ permite hacerlo sin dificultad, y la mejora vale más que cualquier cambio de balanza. Queda además un posible efecto sistemático que la incertidumbre estadística no cubre: el contenido real de la bolsa puede diferir del declarado en la etiqueta, y los fabricantes suelen llenar ligeramente por encima del valor nominal, lo que sesgaría $N$ hacia abajo en un par de por ciento. Pesar la bolsa directamente eliminaría esa duda con un costo mínimo.
+
+\begin{grafica}[H]
+    \centering
+    \includegraphics[width=0.58\textwidth]{figuras/cacahuates.png}
+    \caption{Masa de cada uno de los diez cacahuates de la muestra, con la media y la banda de una desviación estándar.}
+    \label{gr:cacahuates}
+\end{grafica}
+
+\subsection{Discusión general}
+
+Las cuatro partes giran alrededor de la misma ecuación y del mismo análisis, y vistas en conjunto responden a las preguntas planteadas al principio. La primera lección es que la incertidumbre del resultado no la fija el mejor instrumento sino el peor, ponderado por el exponente con el que entra su variable. Con el alambre, cambiar el vernier por el micrómetro y la granataria por la balanza analítica redujo la incertidumbre relativa del $19$ al $1.7\,\%$, y a partir de ahí toda mejora adicional pasa por la regla; con los cilindros pequeños de la tercera parte fue la balanza de centésimas de gramo la que limitó las piezas ligeras; y con los cacahuates ningún instrumento importó, porque la variabilidad de la población domina. Calcular las contribuciones relativas antes de medir, como sugiere la guía \cite{guia}, permite decidir dónde gastar el tiempo: repetir el diámetro del alambre quince veces fue una buena inversión, repetir la masa quince veces no lo fue.
+
+La segunda lección es la diferencia entre fuentes aleatorias y sistemáticas. Las aleatorias aparecieron como variación del diámetro a lo largo del alambre, como diferencias entre repeticiones en los cilindros y como dispersión de las masas de los cacahuates; todas se cuantificaron con la desviación estándar y todas se reducen tomando más datos. Las sistemáticas no se ven en la repetición: el posible recubrimiento del alambre, el déficit de volumen en los bordes de los cilindros y la diferencia entre el contenido real de la bolsa y el declarado en su etiqueta sólo se detectan al comparar con valores de referencia, mediante el diagnóstico de la ordenada al origen o con una medición independiente. Esa es la ventaja de graficar y ajustar en lugar de promediar cocientes: la recta separa lo que escala con el volumen, que es la densidad, de lo que no, que es el sesgo, y lo pone a la vista en la ordenada al origen.
+
+Por último, conviene delimitar lo que el experimento permite afirmar. Las densidades se determinaron con incertidumbres relativas de entre $0.3$ y $2\,\%$, suficientes para distinguir familias de materiales, aluminio de latón y latón de cobre en los cilindros, pero no para resolver aleaciones de composición parecida ni polímeros vecinos, como el nailon y el acrílico, y en el caso del alambre tampoco para decidir entre latón y cobre recubierto. Las densidades obtenidas son válidas para las piezas medidas y a la temperatura del laboratorio; extenderlas a otras piezas de la misma apariencia supone que provienen del mismo lote, lo cual, como mostró el cilindro 6 de la segunda parte, no siempre es cierto.

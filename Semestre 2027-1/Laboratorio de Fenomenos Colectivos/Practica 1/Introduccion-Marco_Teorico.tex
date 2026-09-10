@@ -1,10 +1,78 @@
 \section{Introducción y Marco Teórico}
 
 \subsection{Introducción}
-% Escribir aquí la introducción, contexto, objetivos e hipótesis del experimento.
+
+La pregunta que motivó esta práctica es sencilla de plantear y no tanto de responder: si se tiene un trozo de metal del que no se sabe nada, ¿qué propiedad física, fácil de medir, permite proponer de qué material está hecho? La historia de Arquímedes y la corona del rey Hierón sugiere la respuesta. Arquímedes no necesitó analizar químicamente la corona; le bastó comparar el agua que desplazaba con la que desplazaba una masa igual de oro puro, es decir, comparar densidades. La densidad es una propiedad intensiva, no depende de cuánto material se tenga, y cada sustancia pura y cada aleación de composición fija tienen un valor característico que está tabulado en la literatura. Medir masa y volumen es entonces suficiente para acotar de qué material se trata, siempre que la medición venga acompañada de una incertidumbre honesta, porque hay materiales de uso común cuyas densidades difieren entre sí en apenas unos cuantos por ciento, como el cobre y el latón.
+
+El objetivo general de la práctica fue determinar experimentalmente la densidad de distintos sólidos a partir de mediciones directas de masa y de dimensiones geométricas, identificar el material de cada uno comparando con valores de referencia, y analizar cómo la incertidumbre de cada instrumento se propaga hasta el resultado. Este objetivo se desarrolló en cuatro partes. En la primera se midió un alambre metálico, primero con los instrumentos más sencillos disponibles y después con los de mejor resolución, para cuantificar cuánto mejora el resultado con la selección de instrumentos. En la segunda se midieron once cilindros metálicos y se usó la gráfica de masa contra volumen, junto con un ajuste lineal, para estimar la densidad y decidir si todos los cilindros son del mismo material. En la tercera se repitió el análisis gráfico con cuatro familias de cilindros de materiales distintos. En la cuarta se usó la masa promedio de una muestra pequeña de cacahuates para estimar cuántos hay en una bolsa, como ejercicio de medición indirecta con incertidumbre estadística.
+
+El experimento descansa en algunas hipótesis físicas que conviene dejar explícitas. Se supuso que el alambre y los cilindros son cilindros rectos de sección transversal circular y uniforme, de modo que su volumen queda determinado por un diámetro y una longitud. Se supuso también que cada pieza es homogénea, que las piezas de una misma familia están hechas del mismo material y que las balanzas no tienen desplazamiento de cero. El empuje del aire sobre las piezas se despreció, lo cual introduce un sesgo relativo del orden del cociente entre la densidad del aire y la del material, alrededor de $10^{-4}$ para los metales y de $10^{-3}$ para el polímero, muy por debajo de las incertidumbres alcanzadas. Finalmente, para la cuenta de cacahuates se supuso que la muestra de diez piezas es representativa de la población de la bolsa y que el contenido neto declarado en la etiqueta corresponde, dentro de una tolerancia razonable, a la masa real de cacahuates.
 
 \subsection{Marco Teórico}
-% Escribir aquí los fundamentos físicos del experimento.
+
+La densidad $\rho$ de un cuerpo homogéneo es el cociente entre su masa $m$ y su volumen $V$ \cite{sears}. Ninguna de las dos cantidades se mide de la misma manera. La masa se obtiene por comparación directa con un patrón en una balanza, mientras que el volumen de una pieza regular se calcula a partir de sus dimensiones, de modo que la densidad es una medición indirecta: se obtiene aplicando un modelo, la fórmula del volumen de un cilindro, a varias mediciones directas \cite{diapositivas}. Esto tiene una consecuencia importante para el análisis, pues la incertidumbre de la densidad no se lee de ningún instrumento, sino que hay que propagarla desde las incertidumbres de la masa, el diámetro y la longitud.
+
+Toda medición tiene asociada una incertidumbre, que es una estimación cuantificada del intervalo dentro del cual se espera que esté el valor verdadero, y que no debe confundirse con el error, la diferencia real entre el valor medido y el verdadero, que en general es desconocida \cite{taylor, coleman}. Siguiendo el tratamiento visto en el curso, las fuentes de incertidumbre se separan en dos tipos según su comportamiento. Las aleatorias fluctúan de una medición a otra, producen dispersión en lecturas repetidas y se reducen promediando; un ejemplo en esta práctica es la variación del diámetro de un alambre a lo largo de su longitud. Las sistemáticas desplazan todas las mediciones en la misma dirección, no se reducen al promediar y se estiman a partir de evidencia externa, como la resolución del instrumento o la especificación del fabricante \cite{coleman}. Esta distinción es la misma que separa la precisión, que describe qué tan cercanos son entre sí los resultados repetidos, de la exactitud, que describe qué tan cerca está el resultado del valor verdadero \cite{diapositivas}. Un instrumento puede ser muy preciso y a la vez inexacto si tiene un sesgo de calibración.
+
+Al comparar mediciones de magnitudes distintas la cantidad relevante es la incertidumbre relativa, el cociente entre la incertidumbre absoluta y el valor medido, que es adimensional y suele expresarse en por ciento. Con ella se decide qué instrumento limita la calidad del resultado, porque al propagar incertidumbres en productos y cocientes son las incertidumbres relativas las que se combinan, ponderadas por el exponente con el que aparece cada variable \cite{taylor}. El resultado final se reporta con su incertidumbre redondeada a una o dos cifras significativas, y el valor central redondeado a la misma posición decimal, ya que dar más cifras de las que la incertidumbre respalda no aporta información experimental \cite{baird}.
+
+Cuando la teoría predice una relación lineal entre dos variables, como ocurre entre la masa y el volumen de piezas de un mismo material, la gráfica de una contra la otra debe ser una recta que pasa por el origen y cuya pendiente es la densidad. El método de mínimos cuadrados proporciona una regla reproducible para elegir la pendiente y la ordenada al origen que mejor describen un conjunto de puntos, minimizando la suma de los cuadrados de los residuos verticales \cite{baird, taylor}. La ventaja de este procedimiento sobre el simple promedio de los cocientes $m/V$ es que la pendiente no se ve afectada por un desplazamiento constante en la masa o en el volumen, pues éste se absorbe en la ordenada al origen, y que el valor de la ordenada sirve como diagnóstico: si difiere de cero más allá de su incertidumbre, señala un efecto sistemático o una falla del modelo.
 
 \subsubsection{Modelo Analítico}
-% Desarrollar las ecuaciones gobernantes del fenómeno y definir las variables físicas.
+
+Para un cilindro de diámetro $d$ y longitud $L$ el volumen es $V = \pi d^{2} L/4$, de modo que la densidad se calcula como
+\begin{equation}
+    \rho = \frac{m}{V} = \frac{4m}{\pi d^{2} L}.
+    \label{eq:rho}
+\end{equation}
+
+Si un resultado $r$ depende de varias variables medidas $X_i$ independientes entre sí, su incertidumbre se obtiene combinando en cuadratura las contribuciones de cada variable, cada una multiplicada por la sensibilidad del resultado a esa variable \cite{taylor, coleman}:
+\begin{equation}
+    u_r = \sqrt{\sum_i \left( \frac{\partial r}{\partial X_i} \right)^{2} u_{X_i}^{2}}.
+    \label{eq:propagacion}
+\end{equation}
+Para la ecuación \eqref{eq:rho} las derivadas parciales son
+\begin{align}
+    \frac{\partial \rho}{\partial m} &= \frac{4}{\pi d^{2} L} = \frac{\rho}{m}, \\
+    \frac{\partial \rho}{\partial d} &= -\frac{8m}{\pi d^{3} L} = -\frac{2\rho}{d}, \\
+    \frac{\partial \rho}{\partial L} &= -\frac{4m}{\pi d^{2} L^{2}} = -\frac{\rho}{L},
+\end{align}
+y al sustituirlas en \eqref{eq:propagacion} y dividir entre $\rho$ se obtiene la forma relativa, que es la que se usó en todos los cálculos:
+\begin{equation}
+    \left(\frac{u_\rho}{\rho}\right)^{2} = \left(\frac{u_m}{m}\right)^{2} + 4\left(\frac{u_d}{d}\right)^{2} + \left(\frac{u_L}{L}\right)^{2}.
+    \label{eq:rho_rel}
+\end{equation}
+El factor 4 que acompaña al diámetro proviene del exponente 2 con el que aparece en el volumen, y anticipa que el diámetro es la variable que más conviene medir con cuidado. De la misma ecuación se obtiene la incertidumbre del volumen omitiendo el término de la masa.
+
+Cuando una cantidad se mide $N$ veces en condiciones equivalentes, la mejor estimación es la media $\bar{x}$ y la dispersión de las lecturas individuales se describe con la desviación estándar muestral $s$,
+\begin{align}
+    \bar{x} &= \frac{1}{N}\sum_{i=1}^{N} x_i, \label{eq:media}\\
+    s &= \sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(x_i - \bar{x})^{2}}, \label{eq:desv}
+\end{align}
+mientras que la incertidumbre aleatoria de la media es $s_{\bar{x}} = s/\sqrt{N}$, que disminuye lentamente con el número de mediciones: reducirla a la mitad exige cuatro veces más datos \cite{taylor}. La incertidumbre total de la variable combina esta contribución aleatoria con la sistemática $b_x$ asignada al instrumento \cite{coleman},
+\begin{equation}
+    u_x = \sqrt{s_{\bar{x}}^{2} + b_x^{2}}.
+    \label{eq:combinada}
+\end{equation}
+Las incertidumbres así obtenidas son incertidumbres estándar, es decir, corresponden aproximadamente a un nivel de confianza de $68\,\%$; cuando se requiera un intervalo con $95\,\%$ de confianza se usará la aproximación $U_{95} \approx 2u$ \cite{coleman}.
+
+Para un conjunto de $n$ piezas del mismo material el modelo es $m = \rho V + b$, con $b = 0$ si no hay efectos sistemáticos. En la notación general del curso la recta se escribe $y = mx + b$; para no confundir la pendiente con la masa, aquí la pendiente se denotará $p$, y en esta práctica $p$ es la estimación de $\rho$. Identificando $x = V$ y $y = m$, los parámetros que minimizan $S = \sum D_i^{2}$, con $D_i = y_i - (px_i + b)$, son \cite{baird}
+\begin{align}
+    p &= \frac{n\sum x_i y_i - \sum x_i \sum y_i}{\Delta}, \label{eq:mc}\\
+    b &= \frac{\sum x_i^{2}\sum y_i - \sum x_i y_i \sum x_i}{\Delta}, \label{eq:mcb}\\
+    \Delta &= n\sum x_i^{2} - \Big(\sum x_i\Big)^{2}. \label{eq:delta}
+\end{align}
+Sus incertidumbres se obtienen de la diagonal de la matriz de covarianzas del sistema lineal, lo que conduce a
+\begin{align}
+    u_p &= u_{\mathrm{ef}}\sqrt{\frac{n}{\Delta}}, \qquad
+    u_b = u_{\mathrm{ef}}\sqrt{\frac{\sum x_i^{2}}{\Delta}}, \label{eq:mc_unc}\\
+    u_{\mathrm{ef}} &= \sqrt{u_y^{2} + p^{2}u_x^{2}}, \label{eq:uef}
+\end{align}
+donde $u_{\mathrm{ef}}$ es la incertidumbre efectiva de cada punto en la dirección vertical, que incluye la contribución de la incertidumbre horizontal proyectada con la pendiente \cite{diapositivas}. Estas fórmulas suponen incertidumbres iguales e independientes para todos los puntos.
+
+Por último, si una bolsa de masa $M$ contiene piezas cuya masa promedio es $\bar{m}$, el número de piezas se estima como $N = M/\bar{m}$, y como se trata de un cociente su incertidumbre relativa es
+\begin{equation}
+    \left(\frac{u_N}{N}\right)^{2} = \left(\frac{u_{\bar m}}{\bar m}\right)^{2} + \left(\frac{u_M}{M}\right)^{2},
+    \label{eq:cacahuates}
+\end{equation}
+donde $u_{\bar m}$ se obtiene con las ecuaciones \eqref{eq:desv} y \eqref{eq:combinada} a partir de la muestra.

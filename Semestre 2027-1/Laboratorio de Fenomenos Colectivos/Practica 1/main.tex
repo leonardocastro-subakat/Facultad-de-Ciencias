@@ -2,7 +2,10 @@
 
 % ===== PAQUETES DE COLOR Y FORMATO BÁSICO =====
 \usepackage[utf8]{inputenc}
-\usepackage[spanish, es-tabla]{babel}
+\usepackage[spanish, es-tabla, es-noquoting]{babel}
+\spanishplainpercent % evita que babel inserte espacio antes de \% (falla dentro de modo matemático)
+\decimalpoint        % punto decimal también en modo matemático (babel usa coma por defecto)
+\setlength{\emergencystretch}{2em}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{geometry}
 \geometry{
@@ -124,18 +127,18 @@
     \renewcommand{\headrulewidth}{0pt}
 }
 
-% Entorno personalizado para gráficas
-\newenvironment{grafica}[1][htbp]
-{
-    \begin{figure}[#1]
-    \centering
-    \renewcommand{\figurename}{Gráfica}
-}
-{
-    \end{figure}
-}
+% Entorno personalizado para gráficas (tipo de flotante propio, con su propio contador)
+\DeclareCaptionType[fileext=lgf,placement=htbp,within=none]{grafica}[Gráfica][Lista de gráficas]
+
+% Macros de unidades usadas a lo largo del reporte
+\newcommand{\gcm}{\,\mathrm{g/cm^{3}}}
+\newcommand{\cmc}{\,\mathrm{cm^{3}}}
+\newcommand{\cm}{\,\mathrm{cm}}
+\newcommand{\mm}{\,\mathrm{mm}}
+\newcommand{\g}{\,\mathrm{g}}
 
 \setlength\parindent{0pt}
+\setlength{\parskip}{0.55em}
 
 % =========================================================================
 % INICIO DEL DOCUMENTO
@@ -163,7 +166,7 @@
 
 \vspace{0.3 cm}
 \begin{center}
-    \Huge{\textbf{Práctica 1: [Título de la Práctica]}}
+    \huge{\textbf{Práctica 1: Determinación de la densidad de sólidos y análisis de incertidumbres}}
 \end{center} 
 
 \normalsize
@@ -174,25 +177,21 @@
     \textbf{Laboratorio de Fenómenos Colectivos}
     
     \vspace{0.1 cm}
-    Práctica 1
+    Práctica 1 $\cdot$ Grupo 8161 $\cdot$ Equipo E6 $\cdot$ Semestre 2027-1
     \normalsize
 
     \vspace{0.2 cm}
-    \textbf{Profesor:}
-    
+    \textbf{Profesora:}
+
     \vspace{0.1 cm}
-    [Nombre del Profesor] \\
-    \footnotesize
-    \makebox[0.5cm][l]{}\textcolor{magenta}{[correo\_profesor@ciencias.unam.mx]}
+    Dra. Reyna Guadalupe Ramírez de la Torre
     \normalsize
 
     \vspace{0.2 cm}
     \textbf{Ayudante:}
-    
+
     \vspace{0.1 cm}
-    [Nombre del Ayudante] \\
-    \footnotesize
-    \makebox[0.5cm][l]{}\textcolor{magenta}{[correo\_ayudante@ciencias.unam.mx]}
+    Fís. Ximena Fernández de Córdoba Montenegro
     \normalsize
 
     \columnbreak
@@ -237,12 +236,12 @@ Ciudad Universitaria, Coyoacán, CP.04510, Ciudad de México, CDMX
 % --- RESUMEN / ABSTRACT ---
 \begin{tcolorbox}[colframe=white, colback=blue!5!white]
 \begin{abstract}
-% Escribir aquí el resumen del reporte experimental...
+Se determinó la densidad de varios sólidos a partir de mediciones de masa y de dimensiones, con el fin de identificar su material y de estudiar cómo la elección de los instrumentos controla la incertidumbre. Para un alambre metálico la densidad pasó de $(8.0 \pm 1.5)\gcm$, con regla, vernier y balanza granataria, a $(8.71 \pm 0.15)\gcm$ con micrómetro y balanza analítica, valor compatible con latón y sólo marginalmente con cobre; el análisis de contribuciones mostró que la regla se volvió la fuente dominante de incertidumbre. Con la gráfica de masa contra volumen de once cilindros se comprobó que una sola recta no describe al conjunto y, al separarlos en grupos, se identificaron piezas de latón, cobre y zinc. Para cuatro familias de cilindros los ajustes por mínimos cuadrados dieron $1.17$, $8.49$, $2.71$ y $8.96\gcm$, con incertidumbres menores al $1.5\,\%$, que corresponden a un polímero, latón, aluminio y cobre. Por último, a partir de diez cacahuates se estimó que una bolsa de $850\g$ contiene $(750 \pm 60)$ piezas. Los resultados muestran que la pendiente de un ajuste lineal es un estimador de la densidad más robusto que el promedio de cocientes individuales.
 
 \vspace{0.8 cm}
 \noindent{\color{black}\hdashrule[0.7ex]{1\linewidth}{0.5pt}{1pt 2pt}}
 
-\noindent \textit{\textbf{Palabras clave:}} 
+\noindent \textit{\textbf{Palabras clave:}} densidad, incertidumbre, propagación de incertidumbres, mínimos cuadrados, selección de instrumentos, cifras significativas, identificación de materiales.
 \end{abstract}
 \end{tcolorbox}
 

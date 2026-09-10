@@ -1,13 +1,90 @@
 \section{Apéndice}
 
 \subsection{Cálculos Adicionales y Tablas Complementarias}
-% Incluir tablas extensas o cálculos algebraicos auxiliares aquí.
+
+La tabla~\ref{tab:alambre_crudo} contiene las quince lecturas de diámetro y masa del alambre con las que se calcularon los promedios de la sección de resultados, y la tabla~\ref{tab:p13_crudo} las dos repeticiones de diámetro, altura y masa de cada uno de los veinticuatro cilindros de la tercera parte. En ambas se reproducen los valores tal como se registraron en la hoja de datos, sin redondear.
+
+\begin{table}[H]
+    \centering
+    \caption{Lecturas del diámetro (micrómetro digital, resolución $0.001\mm$) y de la masa (balanza analítica, resolución $0.1\,\mathrm{mg}$) del alambre del equipo E6. La longitud fue $L = (33.0 \pm 0.5)\cm$ en todas las lecturas.}
+    \label{tab:alambre_crudo}
+    \begin{tabular}{c c c}
+        \toprule
+        \textbf{Lectura} & $\bm{d}$ (cm) & $\bm{m}$ (g) \\
+        \midrule
+        1  & 0.0643 & 0.9403 \\
+        2  & 0.0647 & 0.9405 \\
+        3  & 0.0673 & 0.9404 \\
+        4  & 0.0643 & 0.9404 \\
+        5  & 0.0643 & 0.9405 \\
+        6  & 0.0644 & 0.9405 \\
+        7  & 0.0649 & 0.9404 \\
+        8  & 0.0641 & 0.9405 \\
+        \bottomrule
+    \end{tabular}
+    \hspace{1.2cm}
+    \begin{tabular}{c c c}
+        \toprule
+        \textbf{Lectura} & $\bm{d}$ (cm) & $\bm{m}$ (g) \\
+        \midrule
+        9  & 0.0645 & 0.9405 \\
+        10 & 0.0642 & 0.9404 \\
+        11 & 0.0651 & 0.9405 \\
+        12 & 0.0644 & 0.9405 \\
+        13 & 0.0641 & 0.9404 \\
+        14 & 0.0638 & 0.9405 \\
+        15 & 0.0637 & 0.9406 \\
+        \textbf{Media} & \textbf{0.06454} & \textbf{0.94046} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+    \centering
+    \small
+    \caption{Lecturas crudas de los cilindros de la parte 1.3: diámetro y altura con el micrómetro digital, en milímetros, y masa con la balanza electrónica, en gramos. Los subíndices 1 y 2 indican la repetición.}
+    \label{tab:p13_crudo}
+    \begin{tabular}{c c c c c c c c}
+        \toprule
+        \textbf{Familia} & \textbf{Cil.} & $\bm{d_1}$ (mm) & $\bm{h_1}$ (mm) & $\bm{m_1}$ (g) & $\bm{d_2}$ (mm) & $\bm{h_2}$ (mm) & $\bm{m_2}$ (g) \\
+        \midrule
+        \multirow{6}{*}{Blancos}
+          & 1 & 9.989  & 2.080  & 0.19 & 9.978  & 2.084  & 0.18 \\
+          & 2 & 9.797  & 3.927  & 0.34 & 9.790  & 3.944  & 0.34 \\
+          & 3 & 9.956  & 6.098  & 0.54 & 9.962  & 6.108  & 0.54 \\
+          & 4 & 9.885  & 8.009  & 0.72 & 9.890  & 8.023  & 0.72 \\
+          & 5 & 9.982  & 10.000 & 0.92 & 9.999  & 10.093 & 0.91 \\
+          & 6 & 9.943  & 12.078 & 1.08 & 9.942  & 12.090 & 1.09 \\
+        \midrule
+        \multirow{6}{*}{Amarillos}
+          & 1 & 9.690  & 2.073  & 1.31 & 9.958  & 2.072  & 1.31 \\
+          & 2 & 9.960  & 3.973  & 2.62 & 9.961  & 3.977  & 2.62 \\
+          & 3 & 9.942  & 5.991  & 3.93 & 9.945  & 6.003  & 3.93 \\
+          & 4 & 9.956  & 8.012  & 5.28 & 9.953  & 8.015  & 5.28 \\
+          & 5 & 9.992  & 10.064 & 6.68 & 9.993  & 10.061 & 6.69 \\
+          & 6 & 9.992  & 11.928 & 7.93 & 9.995  & 11.940 & 7.92 \\
+        \midrule
+        \multirow{6}{*}{Plateados}
+          & 1 & 10.002 & 2.054  & 0.42 & 9.987  & 2.078  & 0.42 \\
+          & 2 & 9.953  & 3.996  & 0.83 & 9.934  & 4.046  & 0.83 \\
+          & 3 & 9.933  & 6.039  & 1.25 & 9.939  & 6.036  & 1.26 \\
+          & 4 & 9.956  & 8.069  & 1.68 & 9.948  & 8.073  & 1.69 \\
+          & 5 & 10.003 & 10.022 & 2.12 & 9.997  & 10.025 & 2.12 \\
+          & 6 & 9.940  & 12.018 & 2.51 & 9.949  & 12.014 & 2.51 \\
+        \midrule
+        \multirow{6}{*}{Cafés}
+          & 1 & 10.060 & 2.080  & 1.41 & 10.111 & 2.064  & 1.41 \\
+          & 2 & 10.025 & 4.004  & 2.80 & 10.023 & 4.008  & 2.80 \\
+          & 3 & 9.982  & 6.036  & 4.19 & 9.991  & 6.038  & 4.19 \\
+          & 4 & 9.959  & 7.965  & 5.52 & 9.954  & 7.964  & 5.52 \\
+          & 5 & 9.907  & 9.891  & 6.77 & 9.895  & 9.892  & 6.77 \\
+          & 6 & 9.872  & 12.084 & 8.21 & 9.859  & 12.083 & 8.21 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{Código de Procesamiento y Análisis de Datos}
-% Incluir el script de análisis si es necesario.
-%
-% \begin{lstlisting}[language=Python, caption={Script de análisis de datos.}]
-% import numpy as np
-% import matplotlib.pyplot as plt
-% # Codigo aqui...
-% \end{lstlisting}
+
+Todos los promedios, propagaciones de incertidumbre, ajustes por mínimos cuadrados y gráficas del reporte se generaron con el script de Python que se transcribe a continuación. Usa únicamente las bibliotecas \texttt{numpy} y \texttt{matplotlib}, y al ejecutarlo imprime cada resultado intermedio, incluidas las sumas de las columnas de los ajustes, y guarda las gráficas en la carpeta \texttt{figuras}. La función \texttt{minimos\_cuadrados} implementa las ecuaciones \eqref{eq:mc} a \eqref{eq:uef} y el criterio descrito en la metodología para elegir $u_{\mathrm{ef}}$.
+
+\lstinputlisting[language=Python, caption={Script \texttt{analisis.py} con el que se procesaron los datos de las cuatro partes de la práctica.}, label={lst:analisis}]{analisis.py}
