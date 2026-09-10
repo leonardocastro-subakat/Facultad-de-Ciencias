@@ -98,8 +98,8 @@ fig, ax = plt.subplots(figsize=(5.2, 3.0))
 ax.errorbar(np.arange(1, 16), d * 10, yerr=b_d * 10, fmt="o", ms=4, capsize=2, label="lecturas")
 ax.axhline(dm * 10, color="C3", label="media")
 ax.axhspan((dm - sd) * 10, (dm + sd) * 10, color="C3", alpha=0.15, label="media $\\pm s$")
-ax.set_xlabel("Numero de lectura")
-ax.set_ylabel("Diametro $d$ (mm)")
+ax.set_xlabel("Número de lectura")
+ax.set_ylabel("Diámetro $d$ (mm)")
 ax.legend(fontsize=8, loc="upper right")
 fig.tight_layout()
 fig.savefig("figuras/alambre_diametro.png")
@@ -124,7 +124,7 @@ for i in range(11):
           f"  rho = {rho12[i]:.2f} +/- {urho12[i]:.2f}")
 aj_glob = minimos_cuadrados(Vb, Mb, uV, uM)
 reporta_ajuste("ajuste global (11 puntos)", aj_glob)
-grupos12 = {"A (laton)": [1, 3, 5, 7, 9], "B (cobre)": [4, 8, 10]}
+grupos12 = {"A (latón)": [1, 3, 5, 7, 9], "B (cobre)": [4, 8, 10]}
 ajustes12 = {}
 for nombre, idx in grupos12.items():
     k = np.array(idx) - 1
@@ -135,15 +135,15 @@ for nombre, idx in grupos12.items():
 fig, ax = plt.subplots(figsize=(6.0, 3.8))
 xx = np.linspace(0, 6, 2)
 ax.plot(xx, aj_glob["m"] * xx + aj_glob["b"], "k--", lw=1,
-        label=f"ajuste global: $m$ = {aj_glob['m']:.2f} g/cm$^3$")
-colores = {"A (laton)": "C0", "B (cobre)": "C1"}
+        label=f"ajuste global: $p$ = {aj_glob['m']:.2f} g/cm$^3$")
+colores = {"A (latón)": "C0", "B (cobre)": "C1"}
 for nombre, idx in grupos12.items():
     k = np.array(idx) - 1
     a = ajustes12[nombre]
     ax.errorbar(Vb[k], Mb[k], xerr=uV[k], yerr=uM[k], fmt="o", ms=4, capsize=2,
                 color=colores[nombre], label=f"grupo {nombre}")
     ax.plot(xx, a["m"] * xx + a["b"], color=colores[nombre], lw=1,
-            label=f"ajuste {nombre[0]}: $m$ = {a['m']:.2f} g/cm$^3$")
+            label=f"ajuste {nombre[0]}: $p$ = {a['m']:.2f} g/cm$^3$")
 k = np.array([2, 6, 11]) - 1
 ax.errorbar(Vb[k], Mb[k], xerr=uV[k], yerr=uM[k], fmt="s", ms=4, capsize=2,
             color="C3", label="sin clasificar (2, 6, 11)")
@@ -167,7 +167,7 @@ datos13 = {   # (d1, h1, m1), (d2, h2, m2) por cilindro, seis cilindros por grup
  "plateados": [((10.002, 2.054, 0.42), (9.987, 2.078, 0.42)), ((9.953, 3.996, 0.83), (9.934, 4.046, 0.83)),
                ((9.933, 6.039, 1.25), (9.939, 6.036, 1.26)), ((9.956, 8.069, 1.68), (9.948, 8.073, 1.69)),
                ((10.003, 10.022, 2.12), (9.997, 10.025, 2.12)), ((9.940, 12.018, 2.51), (9.949, 12.014, 2.51))],
- "cafes":     [((10.060, 2.080, 1.41), (10.111, 2.064, 1.41)), ((10.025, 4.004, 2.80), (10.023, 4.008, 2.80)),
+ "cafés":     [((10.060, 2.080, 1.41), (10.111, 2.064, 1.41)), ((10.025, 4.004, 2.80), (10.023, 4.008, 2.80)),
                ((9.982, 6.036, 4.19), (9.991, 6.038, 4.19)), ((9.959, 7.965, 5.52), (9.954, 7.964, 5.52)),
                ((9.907, 9.891, 6.77), (9.895, 9.892, 6.77)), ((9.872, 12.084, 8.21), (9.859, 12.083, 8.21))],
 }
@@ -197,7 +197,7 @@ xx = np.linspace(0, 1.0, 2)
 for i, (grupo, t) in enumerate(res13.items()):
     a = aj13[grupo]
     ax.errorbar(t[:, 6], t[:, 4], xerr=t[:, 7], yerr=t[:, 5], fmt="o", ms=4, capsize=2, color=f"C{i}",
-                label=f"{grupo}: $m$ = ({a['m']:.2f} $\\pm$ {a['um']:.2f}) g/cm$^3$")
+                label=f"{grupo}: $p$ = ({a['m']:.2f} $\\pm$ {a['um']:.2f}) g/cm$^3$")
     ax.plot(xx, a["m"] * xx + a["b"], color=f"C{i}", lw=1)
 ax.set_xlim(0, 1.0); ax.set_ylim(0, 9)
 ax.set_xlabel("Volumen $V$ (cm$^3$)"); ax.set_ylabel("Masa $m$ (g)")
